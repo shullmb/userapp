@@ -59,6 +59,16 @@ app.put('/users/:id', function(req,res) {
     })
 })
 
+//DELETE - DESTROY ONE
+app.delete('/users/:id', function(req,res) {
+    db.user.destroy({
+        where: {id: req.params.id}
+    }).then( function(data) {
+        console.log(data);
+        res.sendStatus(200);
+    })
+})
+
 
 app.listen(3000, function(){
     console.log('app is running on 3000');
